@@ -3,8 +3,8 @@ package netxdcustomercontroller
 import (
 	// "dal/netxd_dal_models"
 	"context"
-	netxddalinterfaces "github.com/SWETHA0705/netxd_dal/netxd_dal/interfaces"
-	"github.com/SWETHA0705/netxd_dal/netxd_dal_models"
+	netxddalinterfaces "github.com/SWETHA0705/netxd_dal/netxd_dal_interfaces"
+	netxddalmodels"github.com/SWETHA0705/netxd_dal/netxd_dal_models"
 	pro "github.com/SWETHA0705/netxd_customer/customer"
 )
 
@@ -18,7 +18,7 @@ var(
 )
 
 func (c * CustomerServer) CreateCustomer(ctx context.Context,req * pro.Customer)(*pro.CustomerResponse,error){
-  dbcustomer := &netxddal.Customer{FirstName : req.FirstName,
+  dbcustomer := &netxddalmodels.Customer{FirstName : req.FirstName,
   LastName:  req.LastName,
   BankId: int(req.BankId),
   Balance: int(req.Balance),

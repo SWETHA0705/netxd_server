@@ -5,20 +5,17 @@ import (
 	"fmt"
 	"net"
 
+	netxdcustomer "github.com/SWETHA0705/netxd_customer/customer"
 	netxddalservices "github.com/SWETHA0705/netxd_dal/netxd_dal_services"
 	netxdcustomerconfig "github.com/SWETHA0705/netxd_server/netxd_customer_config"
 	netxdcustomerconstants "github.com/SWETHA0705/netxd_server/netxd_customer_constants"
-
 	controller "github.com/SWETHA0705/netxd_server/netxd_customer_controller"
-
-	netxdcustomer "github.com/SWETHA0705/netxd_customer/customer"
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
-	//"golang.org/x/vuln/client"
 )
 
-func InitialiseDatabase(client *mongo.Client){
-	customercollection := netxdcustomerconfig.GetCollection(client,"bankdb","customer")
+func InitDatabase(client *mongo.Client){
+	customercollection := netxdcustomerconfig.GetCollection(client,"bankdb","transaction")
 
 	controller.CustomerService = netxddalservices.InitialiseCustomerService(customercollection,context.Background())
 
@@ -32,7 +29,7 @@ func main() {
 		panic(err)
 	}
 	
-	InitialiseDatabase(mongoclient)
+	InitDatabase(mongoclient)
 	
 
 	lis, err := net.Listen("tcp", netxdcustomerconstants.Port)
@@ -43,7 +40,7 @@ func main() {
 	fmt.Println("ser")
 
 	s := grpc.NewServer()
-	netxdcustomer.RegisterCustomerServiceServer(s, &controller.CustomerServer{})
+	netxdcustomer.RegisterCustomerServiceServer(s, &controller.TransactionServer{})
 
 	fmt.Println("Server listening on", netxdcustomerconstants.Port)
 	if err := s.Serve(lis); err != nil {
@@ -53,3 +50,6 @@ func main() {
 
 	
 }
+
+
+
