@@ -3,9 +3,9 @@ package netxdcustomercontroller
 import (
 	// "dal/netxd_dal_models"
 	"context"
-	netxddalinterfaces "netxd_project/dal/netxd_dal/netxd_dal/interfaces"
-	"netxd_project/dal/netxd_dal/netxd_dal_models"
-	pro "netxd_project/netxd_customer/customer"
+	netxddalinterfaces "github.com/SWETHA0705/netxd_dal/netxd_dal/interfaces"
+	"github.com/SWETHA0705/netxd_dal/netxd_dal_models"
+	pro "github.com/SWETHA0705/netxd_customer/customer"
 )
 
 type CustomerServer struct{

@@ -4,15 +4,15 @@ import (
 	"context"
 	"fmt"
 	"net"
-	netxddalservices "netxd_project/dal/netxd_dal/netxd_dal_services"
-	netxdcustomerconfig "netxd_project/server/netxd_server/netxd_customer_config"
-	netxdcustomerconstants "netxd_project/server/netxd_server/netxd_customer_constants"
+	netxddalservices "github.com/SWETHA0705/netxd_dal/netxd_dal_services"
+	netxdcustomerconfig "github.com/SWETHA0705/netxd_server/netxd_customer_config"
+	netxdcustomerconstants "github.com/SWETHA0705/netxd_server/netxd_customer_constants"
 
-	controller "netxd_project/server/netxd_server/netxd_customer_controller"
+	controller "github.com/SWETHA0705/netxd_server/netxd_customer_controller"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
-netxdcustomer	"netxd_project/netxd_customer/customer"
+netxdcustomer	"github.com/SWETHA0705/netxd_customer/customer"
 	//"golang.org/x/vuln/client"
 )
 

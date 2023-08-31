@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	netxdcustomerconstants "github.com/SWETHA0705/netxd_project/server/netxd_server/netxd_customer_constants"
+	netxdcustomerconstants "github.com/SWETHA0705/netxd_server/netxd_customer_constants"
 
 	//"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo"
