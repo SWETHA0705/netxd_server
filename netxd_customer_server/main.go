@@ -15,9 +15,9 @@ import (
 )
 
 func InitDatabase(client *mongo.Client){
-	customercollection := netxdcustomerconfig.GetCollection(client,"bankdb","transaction")
-
-	controller.CustomerService = netxddalservices.InitialiseCustomerService(customercollection,context.Background())
+	transactioncollection := netxdcustomerconfig.GetCollection(client,"bankdb","transaction")
+	customercollection := netxdcustomerconfig.GetCollection(client,"bankdb","customer")
+	controller.TransactionService = netxddalservices.InitialiseTransactionService(transactioncollection, customercollection,context.Background())
 
 
 }
